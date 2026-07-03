@@ -22,10 +22,19 @@
   box-sizing: border-box;
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: Inter, sans-serif;
+body{
+
+background:
+radial-gradient(circle at top left,#7c3aed22,transparent 35%),
+radial-gradient(circle at bottom right,#3b82f622,transparent 35%),
+#09090b;
+
+color:white;
+
+font-family:"Plus Jakarta Sans",sans-serif;
+
+min-height:100vh;
+
 }
 
 button {

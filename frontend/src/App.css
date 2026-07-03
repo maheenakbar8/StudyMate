@@ -1,29 +1,198 @@
-* {
-  box-sizing: border-box;
+.app{
+
+min-height:100vh;
+
+padding:32px;
+
+position:relative;
+
+overflow:hidden;
+
+background:#09090B;
+
+}
+.app::before{
+
+content:"";
+
+position:absolute;
+
+width:700px;
+
+height:700px;
+
+background:#7c3aed;
+
+filter:blur(220px);
+
+opacity:.18;
+
+top:-250px;
+
+left:-250px;
+
+animation:float1 10s ease-in-out infinite;
+
+}
+.app::after{
+
+content:"";
+
+position:absolute;
+
+width:650px;
+
+height:650px;
+
+background:#3b82f6;
+
+filter:blur(220px);
+
+opacity:.15;
+
+bottom:-250px;
+
+right:-250px;
+
+animation:float2 12s ease-in-out infinite;
+
+}
+@keyframes float1{
+
+0%{
+
+transform:translate(0,0);
+
 }
 
-body {
-  margin: 0;
-  background: #0f172a;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
+50%{
+
+transform:translate(60px,40px);
+
 }
 
-.app {
-  height: 100vh;
+100%{
 
-  display: flex;
-  flex-direction: column;
+transform:translate(0,0);
+
 }
 
-.dashboard {
-  flex: 1;
+}
 
-  display: grid;
+@keyframes float2{
 
-  grid-template-columns: 250px 1fr 300px;
+0%{
 
-  gap: 20px;
+transform:translate(0,0);
 
-  padding: 20px;
+}
+
+50%{
+
+transform:translate(-60px,-30px);
+
+}
+
+100%{
+
+transform:translate(0,0);
+
+}
+
+}
+
+.home{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+
+  border-radius:var(--radius);
+
+  backdrop-filter:blur(18px);
+
+  padding:24px;
+
+  transition:var(--transition);
+}
+
+.card:hover{
+  transform:translateY(-5px);
+
+  border-color:var(--primary);
+
+  box-shadow:
+  0 0 25px rgba(139,92,246,.18);
+}
+.bottom-section{
+
+display:grid;
+
+grid-template-columns:2fr 1fr;
+
+gap:24px;
+
+}
+.stats-grid{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:20px;
+
+}
+
+.stat-card{
+
+background:var(--card);
+
+border:1px solid var(--border);
+
+border-radius:18px;
+
+padding:20px;
+
+transition:.3s;
+
+}
+
+.stat-card:hover{
+
+transform:translateY(-6px);
+
+border-color:var(--primary);
+
+}
+
+button{
+
+background:linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+
+color:white;
+
+border:none;
+
+padding:14px 24px;
+
+border-radius:12px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:translateY(-3px);
+
 }

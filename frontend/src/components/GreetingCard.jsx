@@ -1,14 +1,42 @@
+import { FiArrowRight, FiPlay } from "react-icons/fi";
+import "../styles/GreetingCard.css";
+
 export default function GreetingCard() {
   return (
-    <section className="greeting-card">
+    <section className="hero">
 
-      <h1>Good Evening, Maheen 👋</h1>
+      <div className="hero-content">
 
-      <p>
-        You're one study session away from your longest streak.
-      </p>
+        <span className="hero-badge">
+          ✨ AI Powered Learning
+        </span>
 
-      <button>Resume Session</button>
+        <h1>
+          Good Evening,
+          <br />
+          <span>Maheen 👋</span>
+        </h1>
+
+        <p>
+          Your personal AI study companion that helps you
+          learn faster, revise smarter, and stay consistent.
+        </p>
+
+        <div className="hero-buttons">
+
+          <button className="primary-btn">
+            <FiPlay />
+            Resume Session
+          </button>
+
+          <button className="secondary-btn">
+            <FiArrowRight />
+            Explore Workspace
+          </button>
+
+        </div>
+
+      </div>
 
     </section>
   );

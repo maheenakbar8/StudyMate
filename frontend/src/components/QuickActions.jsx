@@ -1,22 +1,53 @@
+import "../styles/QuickActions.css";
+
+import { quickActions } from "../data/quickActions";
+
+import { FiArrowRight } from "react-icons/fi";
+
 export default function QuickActions() {
   return (
     <section className="quick-actions">
 
-      <h2>Quick Actions</h2>
+      <h2 className="section-title">
+        Command Center
+      </h2>
 
-      <div className="actions">
+      <div className="actions-grid">
 
-        <button>💬 Ask AI</button>
+        {quickActions.map((action) => {
 
-        <button>📄 Summarize</button>
+          const Icon = action.icon;
 
-        <button>📝 Quiz</button>
+          return (
 
-        <button>🧠 Flashcards</button>
+            <div
+              className="action-card"
+              key={action.title}
+            >
 
-        <button>🗺 Mind Map</button>
+              <div className="action-icon">
 
-        <button>📅 Planner</button>
+                <Icon />
+
+              </div>
+
+              <h3>{action.title}</h3>
+
+              <p>{action.description}</p>
+
+              <div className="action-footer">
+
+                <span>{action.shortcut}</span>
+
+                <FiArrowRight />
+
+              </div>
+
+            </div>
+
+          );
+
+        })}
 
       </div>
 

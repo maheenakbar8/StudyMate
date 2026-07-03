@@ -1,6 +1,6 @@
 export default function Upcoming() {
   return (
-    <section className="upcoming">
+    <section className="upcoming card">
 
       <h2>Upcoming</h2>
 

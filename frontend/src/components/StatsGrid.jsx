@@ -1,31 +1,28 @@
+import "../styles/StatsGrid.css";
+import { stats } from "../data/dummyData";
+
 export default function StatsGrid() {
   return (
     <section className="stats-grid">
+      {stats.map((stat) => {
+        const Icon = stat.icon;
 
-      <div className="card">
-        🔥
-        <h2>12 Days</h2>
-        <p>Study Streak</p>
-      </div>
+        return (
+          <div className="stat-card" key={stat.title}>
+            <div className="stat-icon">
+              <Icon />
+            </div>
 
-      <div className="card">
-        ⏱
-        <h2>42 Hours</h2>
-        <p>This Month</p>
-      </div>
+            <h2>{stat.value}</h2>
 
-      <div className="card">
-        🎯
-        <h2>81%</h2>
-        <p>Semester Goal</p>
-      </div>
+            <span>{stat.subtitle}</span>
 
-      <div className="card">
-        📝
-        <h2>4</h2>
-        <p>Tasks Today</p>
-      </div>
+            <p>{stat.title}</p>
 
+            <small>{stat.change}</small>
+          </div>
+        );
+      })}
     </section>
   );
 }
