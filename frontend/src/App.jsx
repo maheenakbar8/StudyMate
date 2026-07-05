@@ -1,17 +1,11 @@
-import "./App.css";
-
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
+import Layout from "./components/layout/Layout";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
-    <div className="app">
-
-      <Navbar />
-
-      <Home />
-
-    </div>
+    <Layout>
+      <Dashboard />
+    </Layout>
   );
 }
 

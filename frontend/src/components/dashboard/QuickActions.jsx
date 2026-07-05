@@ -1,6 +1,6 @@
-import "../styles/QuickActions.css";
+import "../../styles/QuickActions.css";
 
-import { quickActions } from "../data/quickActions";
+import { quickActions } from "../../data/quickActions";
 
 import { FiArrowRight } from "react-icons/fi";
 

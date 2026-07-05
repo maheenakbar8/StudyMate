@@ -1,5 +1,5 @@
-import "../styles/StatsGrid.css";
-import { stats } from "../data/dummyData";
+import "../../styles/StatsGrid.css";
+import { stats } from "../../data/dummyData";
 
 export default function StatsGrid() {
   return (

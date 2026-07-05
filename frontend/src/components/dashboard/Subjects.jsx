@@ -1,6 +1,6 @@
-import "../styles/Subjects.css";
+import "../../styles/Subjects.css";
 
-import { subjects } from "../data/subjects";
+import { subjects } from "../../data/subjects";
 
 import { FiArrowRight } from "react-icons/fi";
 

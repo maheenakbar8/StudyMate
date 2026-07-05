@@ -1,7 +1,7 @@
 import GreetingCard from "./GreetingCard";
-import StatsGrid from "./StatsGrid";
-import QuickActions from "./QuickActions";
-import Subjects from "./Subjects";
+import StatsGrid from "./dashboard/StatsGrid";
+import QuickActions from "./dashboard/QuickActions";
+import Subjects from "./dashboard/Subjects";
 import Upcoming from "./Upcoming";
 
 export default function Home() {
