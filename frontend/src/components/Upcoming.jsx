@@ -1,19 +1,33 @@
+import "../styles/Upcoming.css";
+import { upcoming } from "../data/upcoming";
+
 export default function Upcoming() {
   return (
-    <section className="upcoming card">
+    <section className="upcoming-section">
+      <div className="section-header">
+        <h2>Upcoming</h2>
+      </div>
 
-      <h2>Upcoming</h2>
+      <div className="timeline">
+        {upcoming.map((item) => (
+          <div className="timeline-item" key={item.title}>
+            <div
+              className="timeline-dot"
+              style={{ backgroundColor: item.color }}
+            />
 
-      <ul>
+            <div className="timeline-content">
+              <span className="timeline-time">{item.time}</span>
 
-        <li>📝 AI Quiz — Tomorrow</li>
+              <h3>
+                {item.icon} {item.title}
+              </h3>
 
-        <li>📄 OOP Assignment — Friday</li>
-
-        <li>📅 Midterm — 8 Days</li>
-
-      </ul>
-
+              <p>{item.subject}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

@@ -8,6 +8,8 @@ import {
   FiMoon,
 } from "react-icons/fi";
 
+import { NavLink } from "react-router-dom";
+
 export default function Sidebar() {
   return (
     <aside className="sidebar">
@@ -16,36 +18,38 @@ export default function Sidebar() {
       </div>
 
       <nav className="sidebar-nav">
-        <a href="#" className="active">
-          <FiHome />
-          <span>Dashboard</span>
-        </a>
 
-        <a href="#">
-          <FiMessageSquare />
-          <span>AI Workspace</span>
-        </a>
+  <NavLink to="/">
+    <FiHome />
+    <span>Dashboard</span>
+  </NavLink>
 
-        <a href="#">
-          <FiBookOpen />
-          <span>Subjects</span>
-        </a>
+  <NavLink to="/workspace">
+    <FiMessageSquare />
+    <span>AI Workspace</span>
+  </NavLink>
 
-        <a href="#">
-          <FiLayers />
-          <span>Flashcards</span>
-        </a>
+  <NavLink to="/subjects">
+    <FiBookOpen />
+    <span>Subjects</span>
+  </NavLink>
 
-        <a href="#">
-          <FiCalendar />
-          <span>Planner</span>
-        </a>
+  <NavLink to="/flashcards">
+    <FiLayers />
+    <span>Flashcards</span>
+  </NavLink>
 
-        <a href="#">
-          <FiSettings />
-          <span>Settings</span>
-        </a>
-      </nav>
+  <NavLink to="/planner">
+    <FiCalendar />
+    <span>Planner</span>
+  </NavLink>
+
+  <NavLink to="/settings">
+    <FiSettings />
+    <span>Settings</span>
+  </NavLink>
+
+</nav>
 
       <div className="theme-toggle">
         <FiMoon />

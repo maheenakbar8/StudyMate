@@ -9,8 +9,11 @@ export default function QuickActions() {
     <section className="quick-actions">
 
       <h2 className="section-title">
-        Command Center
-      </h2>
+  Workspace
+</h2>
+<p className="section-subtitle">
+  Launch your AI study tools with one click.
+</p>
 
       <div className="actions-grid">
 

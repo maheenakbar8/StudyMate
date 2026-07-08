@@ -50,24 +50,31 @@ main{
   align-items: center;
   gap: 14px;
 
-  text-decoration: none;
-  color: #b3b3b3;
-
-  padding: 14px 16px;
+  padding: 14px 18px;
 
   border-radius: 14px;
 
-  transition: 0.3s ease;
+  color: #b4b4c4;
+  text-decoration: none;
+
+  transition: 0.25s ease;
 }
 
 .sidebar-nav a:hover {
-  background: rgba(124, 58, 237, 0.15);
+  background: rgba(255,255,255,.06);
   color: white;
 }
 
 .sidebar-nav a.active {
-  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #3b82f6
+  );
+
   color: white;
+
+  box-shadow: 0 8px 20px rgba(124,58,237,.35);
 }
 
 .theme-toggle {
