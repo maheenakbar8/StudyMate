@@ -1,20 +1,39 @@
 import { useRef, useState } from "react";
 
-export default function FileUpload() {
+export default function FileUpload({
+  file,
+  setFile,
+}) {
 
-  const [file, setFile] = useState(null);
+  
+  const [dragging, setDragging] = useState(false);
 
   const inputRef = useRef(null);
 
   function handleSelect(e) {
 
-    if (e.target.files.length > 0) {
+  const selectedFile = e.target.files[0];
 
-      setFile(e.target.files[0]);
+  handleFile(selectedFile);
 
-    }
+}
+
+  
+  function handleFile(selectedFile) {
+
+  if (!selectedFile) return;
+
+  if (selectedFile.type !== "application/pdf") {
+
+    alert("Please upload a PDF file.");
+
+    return;
 
   }
+
+  setFile(selectedFile);
+
+}
 
   function removeFile() {
 
@@ -24,9 +43,40 @@ export default function FileUpload() {
 
   }
 
+  function handleDragOver(e) {
+
+  e.preventDefault();
+
+  setDragging(true);
+
+}
+
+function handleDragLeave() {
+
+  setDragging(false);
+
+}
+
+function handleDrop(e) {
+
+  e.preventDefault();
+
+  setDragging(false);
+
+  const droppedFile = e.dataTransfer.files[0];
+
+  handleFile(droppedFile);
+
+}
+
   return (
 
-    <div className="upload-box">
+    <div
+  className={`upload-box ${dragging ? "dragging" : ""}`}
+  onDragOver={handleDragOver}
+  onDragLeave={handleDragLeave}
+  onDrop={handleDrop}
+>
 
       {!file ? (
 

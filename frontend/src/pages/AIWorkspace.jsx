@@ -8,6 +8,7 @@ export default function AIWorkspace() {
     const [message, setMessage] = useState("");
     const [messages, setMessages] = useState([]);
 const [isTyping, setIsTyping] = useState(false);
+const [selectedFile, setSelectedFile] = useState(null);
 
     const handleSend = () => {
   if (!message.trim()) return;
@@ -44,16 +45,24 @@ const [isTyping, setIsTyping] = useState(false);
 </div>
 
       <div className="workspace-main">
-        <ChatArea
-  setMessage={setMessage}
+       <ChatArea
   messages={messages}
+  setMessage={setMessage}
   isTyping={isTyping}
+  selectedFile={selectedFile}
 />
-<FileUpload />
-      <MessageInput
+  {/*!selectedFile && (
+  <FileUpload
+    file={selectedFile}
+    setFile={setSelectedFile}
+  />
+)*/}
+     <MessageInput
   message={message}
   setMessage={setMessage}
   handleSend={handleSend}
+  selectedFile={selectedFile}
+  setSelectedFile={setSelectedFile}
 />
       </div>
 

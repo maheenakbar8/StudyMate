@@ -5,6 +5,7 @@ export default function ChatArea({
   setMessage,
   messages,
   isTyping,
+  selectedFile,
 }) {
 
   const messagesEndRef = useRef(null);
@@ -20,7 +21,8 @@ export default function ChatArea({
 
       {messages.length === 0 ? (
 
-        <>
+        <div className="empty-chat">
+
           <div className="ai-orb">🤖</div>
 
           <h1>StudyMate AI</h1>
@@ -100,39 +102,68 @@ export default function ChatArea({
             </div>
 
           </div>
-        </>
+
+        </div>
 
       ) : (
 
         <div className="chat-messages">
 
-         {messages.map((msg, index) => (
+          {selectedFile && (
+            <div className="uploaded-file-banner">
 
-  <div
-    key={index}
-    className={`message-wrapper ${msg.sender}`}
-  >
+              <span>📄</span>
 
-    {msg.sender === "ai" && (
+              <div>
+                <strong>{selectedFile.name}</strong>
+                <p>Ready to chat with this document</p>
+              </div>
 
-      <div className="message-header">
-        🤖 <span>StudyMate</span>
-      </div>
+            </div>
+          )}
 
-    )}
+          {messages.map((msg, index) => (
 
-    <div className={`bubble ${msg.sender}`}>
-      {msg.text}
-    </div>
+            <div
+              key={index}
+              className={`message-wrapper ${msg.sender}`}
+            >
 
-  </div>
+              {msg.sender === "ai" && (
 
-))}
+                <div className="message-header">
+
+                  <div className="ai-badge">
+                    🤖
+                  </div>
+
+                  <span>StudyMate</span>
+
+                </div>
+
+              )}
+
+              <div className={`bubble ${msg.sender}`}>
+                {msg.text}
+              </div>
+
+            </div>
+
+          ))}
 
           {isTyping && (
-            <div className="message-row ai">
 
-              <div className="avatar">🤖</div>
+            <div className="message-wrapper ai">
+
+              <div className="message-header">
+
+                <div className="ai-badge">
+                  🤖
+                </div>
+
+                <span>StudyMate</span>
+
+              </div>
 
               <div className="bubble ai typing">
                 <span></span>
@@ -141,9 +172,10 @@ export default function ChatArea({
               </div>
 
             </div>
+
           )}
 
-          <div ref={messagesEndRef}></div>
+          <div ref={messagesEndRef} />
 
         </div>
 
