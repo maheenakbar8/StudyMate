@@ -4,6 +4,18 @@ from pydantic import BaseModel
 from PyPDF2 import PdfReader
 import shutil
 import os
+from google import genai
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
+print("API Key:", os.getenv("GEMINI_API_KEY"))
+
+
+client = genai.Client(
+    api_key=os.getenv("GEMINI_API_KEY")
+)
 
 document_text = ""
 
@@ -37,10 +49,30 @@ def chat(data: ChatRequest):
             "reply": "Please upload a PDF first."
         }
 
-    return {
-        "reply": f"I found your PDF. You asked: {data.message}"
-    }
+    prompt = f"""
+You are StudyMate AI.
 
+Answer ONLY using the uploaded document.
+
+If the answer is not present in the document,
+say that the information isn't available.
+
+Document:
+{document_text}
+
+Question:
+{data.message}
+"""
+
+    response = client.models.generate_content(
+    model="gemini-flash-latest",
+    contents=prompt,
+)
+
+
+    return {
+    "reply": response.text}
+          
 
 @app.post("/upload")
 async def upload_pdf(file: UploadFile = File(...)):
